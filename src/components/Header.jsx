@@ -1,10 +1,14 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 const Header = () => {
+  const [isLogin, SetIsLogin] = useState(false);
   return (
     <div className="nav-container">
       <div className="logo-container">
         <img
           className="logo"
-          src="https://img.freepik.com/premium-vector/food-ordering-app-logo-with-points-fork-shapes-center_666184-195.jpg"
+          src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-food-delivery-logo-design-png-image_5392526.jpg"
           alt="this is logo"
         />
       </div>
@@ -17,10 +21,35 @@ const Header = () => {
       </div>
       <div className="nav-links">
         <ul className="list-item-container">
-          <li className="list">home</li>
-          <li className="list">about</li>
-          <li className="list">contact us </li>
-          <li className="list">cart</li>
+          <li className="list">
+            <Link to={"/res"}>Home</Link>
+          </li>
+          <li className="list">
+            <Link to={"/aboutus"}>About</Link>
+          </li>
+          <li className="list">Contact Us </li>
+          <li className="list">Cart</li>
+          {isLogin ? (
+            <li
+              className="list"
+              onClick={() => {
+                SetIsLogin(!isLogin);
+              }}
+            >
+              {" "}
+              Logout
+            </li>
+          ) : (
+            <li
+              className="list"
+              onClick={() => {
+                SetIsLogin(!isLogin);
+              }}
+            >
+              {" "}
+              Sign in
+            </li>
+          )}
         </ul>
       </div>
     </div>

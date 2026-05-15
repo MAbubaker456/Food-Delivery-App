@@ -1,11 +1,13 @@
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
+import FilterButton from "./FilterButton";
+import { Outlet } from "react-router-dom";
 const AppLayout = () => {
   return (
     <div>
       <Header />
-      <Body />
+      <Outlet />
       <Footer />
     </div>
   );

@@ -1,12 +1,12 @@
 const ResturantCard = ({ hotelData }) => {
   const {
-    resName,
-    cuisine,
+    name,
+    cuisines,
     avgRating,
-    deliveryTime,
+    sla, //deliveryTime
     costForTwo,
-    imgId,
-    location,
+    cloudinaryImageId,
+    locality,
   } = hotelData;
 
   return (
@@ -17,16 +17,18 @@ const ResturantCard = ({ hotelData }) => {
             className="res-img"
             src={
               "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-              imgId
+              cloudinaryImageId
             }
             alt="resturant image"
           />
         </div>
         <div className="res-details">
-          <p className="res-name">{resName}</p>
-          <p className="res-item">{cuisine.join(" ,")} </p>
+          <p className="res-name">{name}</p>
+          <p className="res-item">{cuisines.join(" ,")} </p>
           <p className="res-item">ratings : {avgRating} ⭐</p>
           <p className="res-item">cost: {costForTwo}</p>
+          <p className="res-item">location: {locality}</p>
+          <p className="res-item">deliveryTime :{sla.deliveryTime}</p>
         </div>
       </div>
     </div>
