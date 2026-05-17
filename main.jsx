@@ -7,6 +7,8 @@ import AppLayout from "./src/components/AppLayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import WelcomePage from "./src/components/WelcomePage";
 import AboutUs from "./src/components/AboutUs";
+import Cart from "./src/components/Cart";
+import ContactUs from "./src/components/ContactUs";
 
 const appRouter = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/aboutus",
         element: <AboutUs />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/contactus",
+        element: <ContactUs />,
       },
     ],
   },

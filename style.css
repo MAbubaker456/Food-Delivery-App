@@ -235,3 +235,10 @@
     left: 100%;
   }
 }
+
+.nav-link-router{
+  margin: 200px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}

@@ -27,8 +27,12 @@ const Header = () => {
           <li className="list">
             <Link to={"/aboutus"}>About</Link>
           </li>
-          <li className="list">Contact Us </li>
-          <li className="list">Cart</li>
+          <li className="list">
+            <Link to={"/contactus"}>Contact Us</Link>
+          </li>
+          <li className="list">
+            <Link to={"/cart"}>Cart</Link>
+          </li>
           {isLogin ? (
             <li
               className="list"
