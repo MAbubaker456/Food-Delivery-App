@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ResturantCard from "./ResturantCard";
 import FilterButton from "./FilterButton";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   // const [resArray, setResArr] = useState;
@@ -45,7 +46,9 @@ const Body = () => {
       <div className="cards">
         {hotelList.map((hotelObj) => {
           return (
-            <ResturantCard key={hotelObj.info.id} hotelData={hotelObj.info} />
+            <Link key={hotelObj.info.id} to={`/res/${hotelObj.info.id}`}>
+              <ResturantCard key={hotelObj.info.id} hotelData={hotelObj.info} />
+            </Link>
           );
         })}
       </div>

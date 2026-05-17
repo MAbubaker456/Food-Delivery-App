@@ -9,6 +9,7 @@ import WelcomePage from "./src/components/WelcomePage";
 import AboutUs from "./src/components/AboutUs";
 import Cart from "./src/components/Cart";
 import ContactUs from "./src/components/ContactUs";
+import ResturantMenu from "./src/components/ResturantMenu";
 
 const appRouter = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ const appRouter = createBrowserRouter([
         path: "/contactus",
         element: <ContactUs />,
       },
+      {
+        path:"/res/:resId",
+      element : <ResturantMenu/>
+      }
+      
     ],
   },
 ]);
