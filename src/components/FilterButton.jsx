@@ -13,7 +13,7 @@ const FilterButton = (resArray, setResArray) => {
           setResArray(filteredArray);
         }}
       >
-        Filter through rating{" "}
+        Filter through rating
       </button>
     </div>
   );
