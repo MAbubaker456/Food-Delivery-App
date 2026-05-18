@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import MenuItem from "./MenuItem";
+import ShimmerMenu from "./ShimmerMenu";
 
 const ResturantMenu = () => {
   const { resId } = useParams();
@@ -29,7 +30,7 @@ const ResturantMenu = () => {
   if (!menu) {
     return (
       <div>
-        <Shimmer />
+        <ShimmerMenu />
       </div>
     );
   }
@@ -40,12 +41,12 @@ const ResturantMenu = () => {
     <div>
       {menu.map((menuObj) => {
         return (
-          <>
-          <div className="dummy-for-margin"></div>
+          <div key={menuObj.card.info.id}>
+            <div className="dummy-for-margin"></div>
             <div>
-              <MenuItem key={menuObj.card.info.id} data={menuObj.card.info} />;
+              <MenuItem key={menuObj.card.info.id} data={menuObj.card.info} />
             </div>
-          </>
+          </div>
         );
       })}
     </div>

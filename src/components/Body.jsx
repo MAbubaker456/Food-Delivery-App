@@ -69,11 +69,14 @@ import FilterButton from "./FilterButton";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { HotelContext } from "../../utils/HotelContext";
+import { useContext } from "react";
+import HotelListContext from "../../utils/HotelListContext";
 
 const Body = () => {
   const [hotelList, setHotelList] = useState([]);
-  const [originalList, setOriginalList] = useState([]); // ⬅️ preserve original
-  const [isFiltered, setIsFiltered] = useState(false); // ⬅️ toggle state
+  // const { hotelList, setHotelList } = useContext(HotelListContext);
+  const [originalList, setOriginalList] = useState([]); //  preserve original
+  const [isFiltered, setIsFiltered] = useState(false); //  toggle state
 
   useEffect(() => {
     const fetchData = async () => {
@@ -96,7 +99,7 @@ const Body = () => {
     fetchData();
   }, []);
 
-  if (!hotelList) return <Shimmer />;
+  if (hotelList.length === 0) return <Shimmer />;
 
   return (
     <HotelContext.Provider

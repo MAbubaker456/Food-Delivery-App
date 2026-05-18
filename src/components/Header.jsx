@@ -1,8 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+// import useIsOnline from "../../utils/useIsOnline";
+// import { useContext } from "react";
+// import HotelListContext from "../../utils/HotelListContext";
 
 const Header = () => {
   const [isLogin, SetIsLogin] = useState(false);
+  // const isOnline = useIsOnline();
+  // const {hotelList, setHotelList} = useContext(HotelListContext);
+
+  // console.log("hotel list from header component", hotelList);
+
   return (
     <div className="nav-container">
       <div className="logo-container">
@@ -21,17 +29,42 @@ const Header = () => {
       </div>
       <div className="nav-links">
         <ul className="list-item-container">
+          {/* {isOnline ? (
+            <li className="list">🟢 Online</li>
+          ) : (
+            <li className="list">🛑 Offline</li>
+          )} */}
           <li className="list">
-            <Link to={"/res"}>Home</Link>
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to={"/res"}
+            >
+              Home
+            </Link>
           </li>
           <li className="list">
-            <Link to={"/aboutus"}>About</Link>
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to={"/aboutus"}
+            >
+              About
+            </Link>
           </li>
           <li className="list">
-            <Link to={"/contactus"}>Contact Us</Link>
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to={"/contactus"}
+            >
+              Contact Us
+            </Link>
           </li>
           <li className="list">
-            <Link to={"/cart"}>Cart</Link>
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to={"/cart"}
+            >
+              Cart
+            </Link>
           </li>
           {isLogin ? (
             <li
@@ -40,7 +73,6 @@ const Header = () => {
                 SetIsLogin(!isLogin);
               }}
             >
-              {" "}
               Logout
             </li>
           ) : (
