@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import useIsOnline from "../../utils/useIsOnline";
+import useIsOnline from "../../utils/useIsOnline";
 import { useContext } from "react";
 import HotelListContext from "../../utils/HotelListContext";
 
 const Header = () => {
   const [isLogin, SetIsLogin] = useState(false);
-  // const isOnline = useIsOnline();
-  const { hotelList, setHotelList } = useContext(HotelListContext);
+  const isOnline = useIsOnline();
+  const { hotelList, setHotelList, filteredHotelList, setFilteredHotelList } =
+    useContext(HotelListContext);
   // trying to see of context works in header so consoling context element
   // console.log("hotel list from header component", hotelList);
   const [input, setInput] = useState("");
@@ -15,11 +16,13 @@ const Header = () => {
   return (
     <div className="nav-container">
       <div className="logo-container">
-        <img
-          className="logo"
-          src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-food-delivery-logo-design-png-image_5392526.jpg"
-          alt="this is logo"
-        />
+        <Link to={"/"}>
+          <img
+            className="logo"
+            src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-food-delivery-logo-design-png-image_5392526.jpg"
+            alt="this is logo"
+          />
+        </Link>
       </div>
       <div className="search-bar">
         <input
@@ -32,24 +35,21 @@ const Header = () => {
             const filteredList = hotelList.filter((hotelobj) => {
               return hotelobj.info.name
                 .toLowerCase()
-                .includes(input.toLowerCase());
+                .includes(e.target.value.toLowerCase());
             });
-            setHotelList(filteredList);
+            setFilteredHotelList(filteredList);
           }}
         />
       </div>
       <div className="nav-links">
         <ul className="list-item-container">
-          {/* {isOnline ? (
+          {isOnline ? (
             <li className="list">🟢 Online</li>
           ) : (
             <li className="list">🛑 Offline</li>
-          )} */}
+          )}
           <li className="list">
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to={"/res"}
-            >
+            <Link style={{ textDecoration: "none", color: "white" }} to={"/"}>
               Home
             </Link>
           </li>

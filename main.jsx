@@ -10,6 +10,7 @@ import AboutUs from "./src/components/AboutUs";
 import Cart from "./src/components/Cart";
 import ContactUs from "./src/components/ContactUs";
 import ResturantMenu from "./src/components/ResturantMenu";
+import Grocery from "./src/components/GroceryComponents/Grocery";
 
 const appRouter = createBrowserRouter([
   {
@@ -39,10 +40,13 @@ const appRouter = createBrowserRouter([
         element: <ContactUs />,
       },
       {
-        path:"/res/:resId",
-      element : <ResturantMenu/>
-      }
-      
+        path: "/grocery",
+        element: <Grocery />,
+      },
+      {
+        path: "/res/:resId",
+        element: <ResturantMenu />,
+      },
     ],
   },
 ]);

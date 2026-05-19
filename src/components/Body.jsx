@@ -74,7 +74,8 @@ import HotelListContext from "../../utils/HotelListContext";
 
 const Body = () => {
   // const [hotelList, setHotelList] = useState([]);
-  const { hotelList, setHotelList } = useContext(HotelListContext);
+  const { hotelList, setHotelList, filteredHotelList, setFilteredHotelList } =
+    useContext(HotelListContext);
   const [originalList, setOriginalList] = useState([]); //  preserve original
   const [isFiltered, setIsFiltered] = useState(false); //  toggle state
 
@@ -95,6 +96,7 @@ const Body = () => {
 
       setHotelList(data);
       setOriginalList(data); // ⬅️ save a copy
+      setFilteredHotelList(data);
     };
     fetchData();
   }, []);
@@ -113,7 +115,7 @@ const Body = () => {
     >
       <FilterButton />
       <div className="cards">
-        {hotelList.map((hotelObj) => (
+        {filteredHotelList.map((hotelObj) => (
           <Link key={hotelObj.info.id} to={`/res/${hotelObj.info.id}`}>
             <ResturantCard hotelData={hotelObj.info} />
           </Link>

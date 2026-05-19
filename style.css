@@ -446,3 +446,44 @@
   height: 18px;
   border-radius: 8px;
 }
+
+.nav-link-router {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.front-page-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.link-tag {
+  text-decoration: none;
+  color: inherit;
+}
+
+.front-page-element {
+  width: 250px;
+  height: 150px;
+  background-color: #fc8019;
+  border-radius: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.front-page-element:hover {
+  transform: scale(1.05);
+  background-color: #ff9f43;
+}
+
+.front-page-element h1 {
+  font-size: 28px;
+}

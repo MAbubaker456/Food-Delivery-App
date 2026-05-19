@@ -7,12 +7,15 @@ import HotelListContext from "../../utils/HotelListContext";
 import { useState } from "react";
 const AppLayout = () => {
   const [hotelList, setHotelList] = useState([]);
+  const [filteredHotelList, setFilteredHotelList] = useState([]);
   return (
     <div>
       <HotelListContext.Provider
         value={{
           hotelList,
           setHotelList,
+          filteredHotelList,
+          setFilteredHotelList,
         }}
       >
         <Header />
