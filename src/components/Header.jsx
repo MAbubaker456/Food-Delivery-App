@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 // import useIsOnline from "../../utils/useIsOnline";
-// import { useContext } from "react";
-// import HotelListContext from "../../utils/HotelListContext";
+import { useContext } from "react";
+import HotelListContext from "../../utils/HotelListContext";
 
 const Header = () => {
   const [isLogin, SetIsLogin] = useState(false);
   // const isOnline = useIsOnline();
-  // const {hotelList, setHotelList} = useContext(HotelListContext);
-
+  const { hotelList, setHotelList } = useContext(HotelListContext);
+  // trying to see of context works in header so consoling context element
   // console.log("hotel list from header component", hotelList);
+  const [input, setInput] = useState("");
 
   return (
     <div className="nav-container">
@@ -22,9 +23,19 @@ const Header = () => {
       </div>
       <div className="search-bar">
         <input
+          value={input}
           className="search-ip"
           type="text"
-          placeholder="search for food"
+          placeholder="Search For Resturants"
+          onChange={(e) => {
+            setInput(e.target.value);
+            const filteredList = hotelList.filter((hotelobj) => {
+              return hotelobj.info.name
+                .toLowerCase()
+                .includes(input.toLowerCase());
+            });
+            setHotelList(filteredList);
+          }}
         />
       </div>
       <div className="nav-links">

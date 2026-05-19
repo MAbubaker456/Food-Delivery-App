@@ -73,8 +73,8 @@ import { useContext } from "react";
 import HotelListContext from "../../utils/HotelListContext";
 
 const Body = () => {
-  const [hotelList, setHotelList] = useState([]);
-  // const { hotelList, setHotelList } = useContext(HotelListContext);
+  // const [hotelList, setHotelList] = useState([]);
+  const { hotelList, setHotelList } = useContext(HotelListContext);
   const [originalList, setOriginalList] = useState([]); //  preserve original
   const [isFiltered, setIsFiltered] = useState(false); //  toggle state
 
