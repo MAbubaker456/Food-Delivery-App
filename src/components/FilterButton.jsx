@@ -48,17 +48,26 @@
 import { useHotelContext } from "../../utils/HotelContext";
 
 const FilterButton = () => {
-  const { hotelList, setHotelList, originalList, isFiltered, setIsFiltered } = useHotelContext();
+  const {
+    hotelList,
+    setHotelList,
+    originalList,
+    isFiltered,
+    setIsFiltered,
+    setFilteredHotelList,
+  } = useHotelContext();
 
   const handleFilter = () => {
     if (isFiltered) {
       // ⬅️ Second click: restore original list
-      setHotelList(originalList);
+      setFilteredHotelList(originalList);
       setIsFiltered(false);
     } else {
       // ⬅️ First click: filter by rating
-      const filteredArray = originalList.filter((resData) => resData.info.avgRating >= 4.3);
-      setHotelList(filteredArray);
+      const filteredArray = originalList.filter(
+        (resData) => resData.info.avgRating >= 4.5,
+      );
+      setFilteredHotelList(filteredArray);
       setIsFiltered(true);
     }
   };
@@ -66,7 +75,8 @@ const FilterButton = () => {
   return (
     <div className="button-container">
       <button className="filter-btn" onClick={handleFilter}>
-        {isFiltered ? "Show All Restaurants" : "Filter Through Rating"} {/* ⬅️ conditional text */}
+        {isFiltered ? "Show All Restaurants" : "Filter Through Rating"}{" "}
+        {/* ⬅️ conditional text */}
       </button>
     </div>
   );

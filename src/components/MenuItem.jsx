@@ -1,5 +1,5 @@
 const MenuItem = ({ data }) => {
-  const { name, category, description, imageId } = data;
+  const { name, category, description, imageId, defaultPrice, price } = data;
 
   return (
     <div className="menu-item-container">
@@ -9,6 +9,10 @@ const MenuItem = ({ data }) => {
         <p className="item-category">{category}</p>
 
         <p className="item-description">{description}</p>
+
+        <p className="item-description">
+          PRICE : {defaultPrice / 100 || price / 100}
+        </p>
 
         <button className="add-btn">ADD</button>
       </div>

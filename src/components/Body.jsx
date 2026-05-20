@@ -111,6 +111,7 @@ const Body = () => {
         originalList,
         isFiltered,
         setIsFiltered,
+        setFilteredHotelList,
       }}
     >
       <FilterButton />
